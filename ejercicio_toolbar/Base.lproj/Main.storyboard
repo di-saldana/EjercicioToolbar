@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ejercicio_toolbar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smn-vD-OFG">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIP-8H-QSN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="72.5"/>
+                                <items>
+                                    <barButtonItem style="plain" id="kfv-fC-ZZp">
+                                        <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="CIT-Qv-G7H">
+                                            <rect key="frame" x="20" y="19.5" width="170" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="AhY-xF-mCB"/>
+                                    <barButtonItem style="plain" id="wXP-QQ-9R6">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ghr-ex-SRj">
+                                            <rect key="frame" x="263" y="20.5" width="131" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="First"/>
+                                                <segment title="Second"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentedControlIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="v0V-PM-OdD"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="smn-vD-OFG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="38O-Ki-eA0"/>
+                            <constraint firstItem="kIP-8H-QSN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="J9H-7v-6AH"/>
+                            <constraint firstItem="smn-vD-OFG" firstAttribute="top" secondItem="kIP-8H-QSN" secondAttribute="bottom" constant="321" id="PCa-vL-QH7"/>
+                            <constraint firstItem="kIP-8H-QSN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TOz-vk-xnd"/>
+                            <constraint firstItem="kIP-8H-QSN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bGP-0w-gba"/>
+                            <constraint firstItem="kIP-8H-QSN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pyX-sk-Fos"/>
+                            <constraint firstItem="smn-vD-OFG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rRp-G4-XKo"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segmentLabel" destination="smn-vD-OFG" id="g6J-XR-LeZ"/>
+                        <outlet property="segmentedControl" destination="ghr-ex-SRj" id="rEG-m9-CQX"/>
+                        <outlet property="textField" destination="CIT-Qv-G7H" id="efh-I1-57T"/>
+                        <outlet property="toolBar" destination="kIP-8H-QSN" id="zd2-Az-QuX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="69.642857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
